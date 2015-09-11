@@ -1,4 +1,4 @@
-<strong>Ananymous Chatting application</strong> 
+<strong>Ananymous Chatting application</strong><br/>
 Run the following command: <br/> 
 $ node index.js <br/>
 Access the application by http://{your_server_ip}:3700<br/>
