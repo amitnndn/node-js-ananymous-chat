@@ -1,0 +1,9 @@
+#send{
+    font-style: italic;
+    background-color: lightgreen;
+    border-color: lightgreen;
+    border-radius: 13px;
+}
+#field{
+	margin-right: 10px;
+}	
