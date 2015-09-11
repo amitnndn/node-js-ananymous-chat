@@ -14,7 +14,7 @@ var typing = document.getElementById("typing");
             messages.push(data.message);
             var html = '';
             for(var i=0; i<messages.length; i++) {
-                html += messages[i] + '<br />';
+                html += '<div id="message">' + messages[i] + '</div>';
             }
             content.innerHTML = html;
 	    content.scrollTop = content.scrollHeight;

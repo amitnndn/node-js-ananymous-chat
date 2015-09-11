@@ -7,8 +7,11 @@ script(src='/notify.js')
 script(src='/socket.io/socket.io.js')
 link(rel='stylesheet',href='/css/design.css')
 body
-#content(style='width:500px; height: 300px; margin: 0 0 20px 0; border: solid 1px #000; overflow-y: scroll;')
-.controls
-#typing(style='display:none') Someone is typing
-input#field(style='width:350px;',onkeypress='return runScript(event)',onChange='return onChange()')
-input#send(type='button',value='Send')
+div#container
+	#content(style='height: 300px; overflow-y: scroll;')
+	.controls
+	#typing(style='display:none') Someone is typing
+	div#form
+		input#field(onkeypress='return runScript(event)',onChange='return onChange()')
+		input#send(type='button',value='Send')
+		.clear
