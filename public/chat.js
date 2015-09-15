@@ -18,15 +18,17 @@ var currentUser = readCookie('userName');
             var html = '';
             var textAlign = '';
             for(var i=0; i<messages.length; i++) {
-              if(data.users[i]){
-                if(data.users[i] == currentUser)
-                  textAlign = 'style="text-align: left"';
+	      console.log(users[i] + " " + currentUser);
+              if(users[i]){
+                if(users[i] == currentUser)
+                  textAlign = 'style="text-align: right;"';
                 else
-                  textAlign = 'style="text-aligh: right"';
-                html += '<div id="message">' + users[i] + messages[i] + '</div>';
-              }
+                  textAlign = 'style="text-align: left;"';
+                html += '<div id="message"' + textAlign + '>' + users[i] + ": "+ messages[i] + '</div>';
+		console.log(textAlign);
+              }	
               else{
-                html += '<div id="message" style="text-align: right"> Ghost: ' + message[i] + '</div>';
+                html += '<div id="message" style="text-align: right"> Ghost: ' + messages[i] + '</div>';
               }
             }
             content.innerHTML = html;
