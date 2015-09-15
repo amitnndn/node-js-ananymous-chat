@@ -18,6 +18,7 @@ var currentUser = readCookie('userName');
             var html = '';
             var textAlign = '';
             for(var i=0; i<messages.length; i++) {
+<<<<<<< Updated upstream
 	      console.log(users[i] + " " + currentUser);
               if(users[i]){
                 if(users[i] == currentUser)
@@ -29,6 +30,17 @@ var currentUser = readCookie('userName');
               }	
               else{
                 html += '<div id="message" style="text-align: right"> Ghost: ' + messages[i] + '</div>';
+=======
+              if(data.users[i]){
+                if(data.users[i] == currentUser)
+                  textAlign = 'style="text-align: left"';
+                else
+                  textAlign = 'style="text-aligh: right"';
+                html += '<div id="message">' + users[i] + messages[i] + '</div>';
+              }
+              else{
+                html += '<div id="message" style="text-align: right"> Ghost: ' + message[i] + '</div>';
+>>>>>>> Stashed changes
               }
             }
             content.innerHTML = html;
