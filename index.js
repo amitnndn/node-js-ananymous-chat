@@ -11,10 +11,13 @@ app.use(cookieParser());
 var names = ["dumbass","jackass","asshole"];
 app.get("/", function(req,res){
 	var userName = names[Math.floor(Math.random()*names.length)];
-	res.cookie("userName" , userName);
-	res.render("page");
-	console.log("Cookies: " , req.cookies);
-
+	//removeElement(userName);
+	var cookie = res.cookies.userName;
+	if(cookie == undefined){
+		res.cookie("userName" , userName);
+		res.render("page");
+		console.log("Cookies: " , req.cookies);
+	}
 });
 app.use(express.static(__dirname + '/public'));
 var io = require('socket.io').listen(app.listen(port));
@@ -28,5 +31,11 @@ io.sockets.on('connection', function(socket){
 		io.sockets.emit('message','someone is typing..');
 	});
 });
+function removeElement(userName){
+	var index = names.indexOf(userName);
+	if(index > -1 ){
+		names.splice(index, -1);
+	}
+}
 
 console.log("Listening on port " + port);
