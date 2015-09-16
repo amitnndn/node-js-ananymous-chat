@@ -3,8 +3,10 @@ document.addEventListener('DOMContentLoaded', function () {
   if (Notification.permission !== "granted")
     Notification.requestPermission();
 });
-function notifyMe(data) {
-console.log("Here");
+function notifyMe(data,doNotify) {
+  if(!doNotify){
+    return;
+  }
   if (!Notification) {
     alert('Desktop notifications not available in your browser. Try Chromium.'); 
     return;

@@ -17,10 +17,13 @@ var currentUser = readCookie('userName');
             users.push(data.user);
             var html = '';
             var textAlign = '';
+            var doNotify = true;
             for(var i=0; i<messages.length; i++) {
               if(users[i]){
-                if(users[i] == currentUser)
+                if(users[i] == currentUser){
                   textAlign = 'style="text-align: right;"';
+                  doNotify = false;
+                }
                 else
                   textAlign = 'style="text-align: left;"';
                 html += '<div id="message"' + textAlign + '>' + users[i] + ": "+ messages[i] + '</div>';
@@ -33,7 +36,7 @@ var currentUser = readCookie('userName');
             content.innerHTML = html;
 	    content.scrollTop = content.scrollHeight;
       console.log(readCookie('userName'));
-	    notifyMe(data.message);
+	    notifyMe(data.message,doNotify);
 	    document.title = "Realtime Chat Application";
         } else {
             console.log("There is a problem:", data);
